@@ -326,6 +326,25 @@ resume parsing
 
 
 
+Machine learning - is all about predictive analytics
+we must have data in 2 Dimention (rows Vs columns)
+
+- feature selection is manual - we need to select columns manually
+
+humidity/ rainfall/temp/ farmer ph calls -> crop yield
+
+
+Deep learning  - can predict on multi dimentional data
+image (RGB) , video, audio, text
+
+feature selection is automatic
+
+
+
+
+
+
+
 
 
 

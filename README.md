@@ -294,6 +294,43 @@ import nltk
 nltk.download('stopwords')
 
 
+NER - Name Entity Recognition
+------------------------------
+NER is a task in Natural Language Processing where we identify and classify
+entities in text into categories like person name, locations, organisation, dates etc
+
+NLTK performs NER in these steps
+1. tokenization - splitting text into words
+2. POS tagging - identify grammatical roles
+3. Chunking (NER) - group words into names entities
+
+
+what is chunking
+------------------
+in NLP we group words into meaningful phrases (chunks) like
+Noun Phrases (NP)
+Verb Phrases (VP)
+Prepositional Phrases (PP)
+
+What chunking is not
+- it does not understand the full sentence meaning
+- it does not find relationship between chunks
+- it is not deep parsing
+
+Why chunking is important
+----------------------------
+to extract key phrases
+for chatbots
+information extraction
+resume parsing
+
+
+
+
+
+
+
+
 
 
 

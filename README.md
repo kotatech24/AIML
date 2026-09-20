@@ -239,6 +239,106 @@ it can create fake words
 3. Snowball - improved porter. It is balanced. supports multiple languages
 
 
+Lemmatization 
+----------------
+both stemming and lemmatization techniques are used in NLP to reduce
+words to a common base form
+
+lemmatization reduces a word to its lemma (dictionary base form) by considering
+- meaning
+- context
+- part of speech (POS)
+
+it uses vocabulary + linguistic Rules
+
+eg running -> run
+   better -> good (this answer is aware of context and not just chopping letters)
+   studies -> study
+   went -> go
+
+how lemmatization works
+-------------------------
+1. identify part of speech (noun, verb, adjective)
+2. uses lexicon/ dictionary
+3. Apply morphological analysis
+
+meeting -> noun
+meet -> verb
+
+this lemma depends on context
+
+
+we use lemmatization (understand the tree before trimming ) when
+- we need more accuracy
+- chatbots, question answering, search engines, sentiment analysis
+
+we use stemming (cutting branches blindly) when
+- we need speed
+- for large scale systems like  information retrival, search indexing
+
+stop words
+-----------
+are common words that usually dont carry much meaning 
+eg the, is, in, at, and, a, an
+
+why do we need to remove stop words
+-----------------------------------
+reduce noise
+speed up the processing
+focus more on meaningful words
+
+eg the cat is sitting on the mat - sentence with stop words
+   cat sitting mat -> sentence without stop words
+
+import nltk
+nltk.download('stopwords')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

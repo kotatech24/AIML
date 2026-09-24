@@ -340,6 +340,224 @@ image (RGB) , video, audio, text
 feature selection is automatic
 
 
+=======================================>
+
+Image Augmentation
+===================
+Image augmentation is the process of creating new training image from existing 
+images by applying transformation while preserving the original class label
+
+eg imagine we have one image of cat
+from the same image we can create multiple images of cat by
+- rotate - rotating by certain degrees
+- flip - horizontal flip (left right orientation)
+- zoom - zoom in zoom out
+- Brightness - introduce cloudy theme, night
+- Noise
+- crop
+- shift - move image to left/ right/ up/ down in same frame
+- shear - rectangle and parallelogram -simulates viewing onbject from different angles
+
+why augmentation is needed 
+---------------------------
+suppose we have only 100 images of dogs
+without augmentation 
+100 images -> CNN -> learn only those 100 images
+
+in the testing dataset - if we rotate dog image by 30 degree
+model will fail as it have never learnt from that kind of image
+
+Benifits of image augmentation
+------------------------------
+create additional training examples
+reduces overfitting
+better generalization - improves performance on unseen images
+handles real world variations
+better accuracy
+
+
+when to use augmentation
+-------------------
+1. small datasets
+2. medical imaging where we need more accuracy
+3. sattelite images
+4. face recognition
+5. object detection
+6. image classification
+
+when should we avoid augmentation
+----------------------
+handwritten digits - 6 if you rotate to 180 degree it becomes 9
+
+CIFAR 10 Dataset
+-----------------
+total images - 60,000
+training images - 50,000
+testing images - 10,000
+number of classes - 10
+image per class - 6000
+training images per class - 5000
+testing images per class - 1000
+image size - 32 X 32 pixels
+color - RGB
+
+labels 
+0 - Airplane
+1 - Automobile
+2 - Bird
+3 - cat
+4 - Deer
+5 - Dog
+6 - Frog
+7 - horse
+8 - ship
+9 - truck
+
+per image size is (32 X 32 X 3)
+
+-------------------------------------
+
+R-CNN (Region Based Convolutional Neural Network)
+
+a deep learning algorithm used for object detection. Unlike image classification (which predicts one lable for entire image)
+
+this answers - where object is present, where they are located
+
+imagine image has Dog, car and a person
+
+R-CNN first finds possible regions that might contain objects
+
+Region 1 - person
+Region 2 - dog
+Region 3 - Cat
+..
+...
+2000 regions
+
+each region is then passed to CNN seperately 
+
+steps of R-CNN
+----------------
+1. input image
+2. Region proposal - An algorithm called selective search proposes approx 2000 regions
+3. Resize every region - CNN requires fixed size inputs therefore each region is resized
+4. CNN feature extraction - each resized region is passed to CNN and features are created
+5. Classification - A classifier predicts the object category 
+
+Man - 99%
+dog - 0.2%
+..
+...
+6. Boundary box regression - The proposed box may not fit the object precisely, boundary box
+regression adjusts it
+
+
+complete pipeline
+-------------------
+image -> selective search -> Resize -> CNN ->feature extraction -> SVM Classifier ->Boundary box regression -> final detection
+
+Advantages of RCNN
+----------------------
+very accurate compared to earlier object detection methods
+determine multiple objects in one image
+can locate objects with boundary boxes
+
+
+Disadvantages 
+-------------
+approx 2000 regions - on those CNN works - computationaly expensive
+that a a reason more advanced model came - 
+Fast RCNN - Runs CNN once on the whole image and shares features for all the regions
+Faster RCNN - replaces selective search with RPN (Region proposed Network)
+Mask RCNN - add pixel level object segmentation in addition to boundaries - highly accurate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -475,6 +475,488 @@ Mask RCNN - add pixel level object segmentation in addition to boundaries - high
 
 
 
+GST payers data of last 5 years of certain state
+columns like KYC details, amount of GST due, paid, defaulter (Y/N)
+you have 30 columns
+
+aim - predict next GST payers is defaulter  or not
+
+what are pre processing steps
+which algorithm you use (ML or DL what you will use and why)
+what you will do to find important columns for prediction
+
+- check the columns df.columns
+- check df.shape (rows Vs Col)
+- df.dtypes (obj - contains string)
+- remove duplicates
+- impute missing values if they are not high in any column
+  if missing vals are very high - we delete that col
+- variance in a col - Age - all age is 25
+  if var is low - delete that col
+- correlation between vars - heat maps
+  if multiple vars are correlated we keep 1 and delete others
+- data visualization and check if we have outlier
+- basic ML algo - Logistic reg, decision trees, random forest, naive bayes classifier
+- decision trees, random forest - feature impotances tells which column is 
+  contributing to result
+-----------------------------------------------------------------------
+
+Autoencoders 
+-------------
+Netflix - has millions of users and they have their own behaviours
+can we compress the important information into smaller meaningful patters ?
+
+or
+
+how does your phone reduce image size but still the image recognizable ?
+
+Autoencoders - learns
+how to compress data
+then reconstruct it again
+
+
+like Zip files, Human memory, summaries, data compression
+
+autoencoders learns the most important features automatically
+
+Definition of autoencoders - An autoencoder is a neural network that
+1. takes the input data
+2. compress it
+3. Tries to recreate the same data
+
+What is the Architecture of autoencoder
+Input -> encoder -> Bottleneck -> Decoder -> o/p
+
+1. Input layer - original data like image, customer data, transactions
+2. Encoder - compress the information eg 10000 features - compress is 100 features
+   like summary of a book into notes
+3. Bottleneck - Most important compressed representation/ knowledge learned
+4. Decoder - Rebuild the original data
+5. o/p - original data
+
+Autoencoders is - not supervised learning
+                - not a classification 
+it is self supervised learning. which means input itself becomes target o/p
+
+Why encoders matter 
+--------------------
+Banking - Fraud detection
+Healthcare - MRI noise detection
+Manufacturing - predictive maintainance
+Retail - recommendation system
+Cybersecurity - intrusion detection
+finance - Risk anomaly detection
+
+Autoencoders learns the normal behaviour
+if reconstruction errors become high- it is anomaly
+
+--------------------------------------------------------
+Boltzmann machines
+----------------
+how does netflix guess what movie you may like next ?
+
+or
+
+how dows spotify recommend songs ?
+
+AI systems try to discover 
+1. hidden preferences
+2. hidden patterns
+3. hidden relationships
+
+Boltzmann machines were one of the early deep learning models designed for this
+
+Boltzmann machines learns -
+WHICH THINGS USUALLY OCCUR TOGETHER ?
+
+eg customers who buy phones also buy covers
+   people who watch action movies also watch thrillers
+   users who like cricket may like football highlights
+
+Human brain analogy
+Rain - umbrella
+coffee - biscuits
+
+Boltzmann machine is a neural network that learns probability patters and hidden 
+relationships in the data
+
+unlike ML - it does not memorize exact answers
+instead it learns probabilities and relationships
+
+Structure of Boltzmann machines
+------------------------------
+Visible nodes -> hidden nodes
+
+visible nodes -  movie ratings purchases, clicks, symptoms
+hidden nodes  - customer taste, personality, preferences behaviour patters
+
+User A - you like movies which are having
+         Action and Thriller
+
+User B - likes Romance, Drama
+User C - likes action and sci fi
+
+hidden layer may learn 
+hidden feature 1 => likes excitement
+hidden feature 2 => lines emotional stories
+
+Ludwig Boltzmann
+low energy = stable patters
+high energy = unlikely patters
+
+Boltzmann machines were the foundational models of 
+- recommendation engines
+- collaborative filtering (combination of content based and user based filtering)
+- preference learning
+
+user based filtering - it can go wrong as taste of people are different
+content based filtering 
+
+Problem with Boltzmann machines 
+extremely slow
+
+RBM - restricted Boltzmann machines
+this is called restrcited because connection among nodes are restricted
+there are cross layer connections
+
+- employees can talk only to managers
+
+but - employees cannot talk to each other
+      managers cannot talk to each other
+
+
+if you compare Autoencoders with Boltzmann machines
+
+Autoencoders - Deterministic models, faster, common in today's world, focus is compression
+Boltzmann machines - probabilistic, slower, less common today, focus is to find relationship in patters
+
+
+
+deployement process of python project
+leadership role what path to follow in AI domain
+GenAI and Agentic AI industry use cases
+Job prospects - genai or agentic AI
+genai tools 
+algorithms/ libraries used in industry for GenAi 
+lang chain
+lang graph
+crew ai
+
+
+
+GAN (Generative Adversarial Networks)
+
+can AI generate - fake human faces 
+generate fashion models
+generate music
+generate product designs
+deepfake videos
+creating advertisements
+
+
+what is GAN - two neural networks competing against each other to become smarter
+eg counterfeit money
+
+goal of Artist (Generator) - create fake currency
+goal of Police (Discriminator) - detect fake notes
+
+initially - fake notes were terrible
+            Discriminator easily catches them
+
+over time -  counterfeit artist improves
+             police also improves
+
+eventually - fake notes become more realistic
+
+this is called as GAN Training
+
+Generator -- create fake data
+Discriminator -- detects fake vs real
+comptetion - to fail the other/ both networks improves
+
+Business Examples
+--------------------
+Banking - fraud simulation 
+healthcare - generate medical scane for training
+marketing - AI generated ads, personalised product images
+fashion - clothing design
+gaming - generate characters
+
+how generator and discriminator works - step by step intution
+
+Genrator - Input - random noise
+           Output - fake data
+it is learning patterns, shapes, styles and structures
+
+Discriminator - Input - real image and fake image
+                Output - probability of being real
+
+both are becoming smarter
+
+GAN training process - baby step flow
+step 1 - generator creates a fake image
+step 2 - Discriminator checks is it real ? is it fake ?
+step 3 - Discriminator gives feedback eg the image looks fine or not fine
+step 4 - if not fine generator improves
+step 5 - repeat above steps 10000 times
+
+GAN do not memorize images
+it learns - patterns, distributions, structures
+
+Generator wants - discriminator should say its real
+          loss - how bad  the fake image ?
+discriminator wants - correctly identify fake or real
+          loss - how many mistakes were made ?
+
+Explain Training battle
+Epoch          Generator         discriminator
+start          weak				 strong
+Middle         Better            Better
+End            Very realistic    confused
+
+
+
+# deployement process of python project
+
+Developer -> writes python code (Flask or django application) -> pushes to github -> cloud platforms (AWS/ Azure/ GCP) -> download the project -> install python and relevant packages in cloud -> Build the application -> start python server -> give public URL -> user can access your app
+
+py2exe
+
+
+leadership role what path to follow in AI domain
+basics of AI and ML (terminologies)
+domain knowledge is must
+Genarate AI and LLM terminologies 
+cloud envt
+project management
+AI ethics and governance 
+
+
+
+GenAI and Agentic AI industry use cases
+- generating medical reports
+- summarise patient records
+- assist doctors in diagnosis
+
+banking - fraud detection, financial doc summarization, chatbots
+
+Retail and ecommerce - 
+software devt - code generation, bug fixingm documentation etc
+
+
+1. Tansformer models 
+used in chat bots
+machine translation
+code geenration
+GPT 5
+GPT 4
+Claude
+gemini
+llama
+deepseek
+mistral 
+
+2. Diffusion models - used for high quality images/ videos
+eg - DALLE
+     MidJourney
+
+3. Vision transformers - based on image adapts its understanding
+eg face recognition, image classification
+
+4. CNN
+
+5. LSTM or RNNs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
